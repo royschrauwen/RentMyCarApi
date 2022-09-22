@@ -33,7 +33,6 @@ public class CarController {
 
     @Autowired
     CarRepository carRepository;
-    UserRepository userRepository;
 
     @GetMapping("/cars")
     public ResponseEntity<List<Car>> getAllCars(@RequestParam(required = false) String colour) {

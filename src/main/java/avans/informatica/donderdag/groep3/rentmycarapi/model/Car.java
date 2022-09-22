@@ -19,8 +19,7 @@ public class Car {
     @Column(name = "colour")
     private String colour;
 
-    @Column(name = "ownerId")
-    private int ownerId;
+
 
     @Column(name = "year")
     private int year;
@@ -28,16 +27,20 @@ public class Car {
     @Column(name = "fuel")
     private int fuel;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ownerId")
+    private User owner;
+
     public Car() {
     }
 
-    public Car(String numberplate, int numberOfSeats, String colour, int ownerId, int year, int fuel) {
+    public Car(String numberplate, int numberOfSeats, String colour, int year, int fuel, User user) {
         this.numberplate = numberplate;
         this.numberOfSeats = numberOfSeats;
         this.colour = colour;
-        this.ownerId = ownerId;
         this.year = year;
         this.fuel = fuel;
+        this.owner = user;
     }
 
     public long getId() {
@@ -72,12 +75,12 @@ public class Car {
         this.colour = colour;
     }
 
-    public int getOwnerId() {
-        return ownerId;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public int getYear() {
