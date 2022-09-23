@@ -24,8 +24,8 @@ public class Car {
     @Column(name = "year")
     private int year;
 
-    @Column(name = "fuel")
-    private int fuel;
+    @Column(name = "fuelType")
+    private int fuelType;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ownerId")
@@ -34,12 +34,12 @@ public class Car {
     public Car() {
     }
 
-    public Car(String numberplate, int numberOfSeats, String colour, int year, int fuel, User user) {
+    public Car(String numberplate, int numberOfSeats, String colour, int year, int fuelType, User user) {
         this.numberplate = numberplate;
         this.numberOfSeats = numberOfSeats;
         this.colour = colour;
         this.year = year;
-        this.fuel = fuel;
+        this.fuelType = fuelType;
         this.owner = user;
     }
 
@@ -91,11 +91,23 @@ public class Car {
         this.year = year;
     }
 
-    public int getFuel() {
-        return fuel;
+    public int getFuelType() {
+        return fuelType;
     }
 
-    public void setFuel(int fuel) {
-        this.fuel = fuel;
+    public void setFuelType(int fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    @Override
+    public String toString() {
+        return "Car [" +
+                "numberplate='" + numberplate + '\'' +
+                ", numberOfSeats=" + numberOfSeats +
+                ", colour='" + colour + '\'' +
+                ", year=" + year +
+                ", fuelType=" + fuelType +
+                ", owner=" + owner +
+                "]";
     }
 }
