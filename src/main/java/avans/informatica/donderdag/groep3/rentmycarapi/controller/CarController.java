@@ -54,4 +54,15 @@ public class CarController {
         }
     }
 
+    @GetMapping("/cars/{id}")
+    public ResponseEntity<Car> getCarById(@PathVariable("id") long id) {
+        Optional<Car> carData = carRepository.findById(id);
+
+        if (carData.isPresent()) {
+            return new ResponseEntity<>(carData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
