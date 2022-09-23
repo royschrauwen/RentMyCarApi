@@ -19,8 +19,9 @@ public class Offer {
     @Column(name = "pickupLocation")
     private String pickupLocation;
 
-    @Column(name = "isBooked")
-    private boolean isBooked = false;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "bookedBy")
+    private User bookedBy;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "car")
@@ -29,11 +30,11 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(LocalDateTime startDateTime, LocalDateTime endDateTime, String pickupLocation, boolean isBooked, Car car) {
+    public Offer(LocalDateTime startDateTime, LocalDateTime endDateTime, String pickupLocation, User bookedBy, Car car) {
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
         this.pickupLocation = pickupLocation;
-        this.isBooked = isBooked;
+        this.bookedBy = bookedBy;
         this.car = car;
     }
 
@@ -43,6 +44,14 @@ public class Offer {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getBookedBy() {
+        return bookedBy;
+    }
+
+    public void setBookedBy(User bookedBy) {
+        this.bookedBy = bookedBy;
     }
 
     public LocalDateTime getStartDateTime() {
@@ -69,13 +78,7 @@ public class Offer {
         this.pickupLocation = pickupLocation;
     }
 
-    public boolean isBooked() {
-        return isBooked;
-    }
 
-    public void setBooked(boolean booked) {
-        isBooked = booked;
-    }
 
     public Car getCar() {
         return car;
@@ -92,7 +95,7 @@ public class Offer {
                 ", startDateTime=" + startDateTime +
                 ", endDateTime=" + endDateTime +
                 ", pickupLocation='" + pickupLocation + '\'' +
-                ", isBooked=" + isBooked +
+                ", bookedBy=" + bookedBy +
                 ", car=" + car +
                 "]";
     }
