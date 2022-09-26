@@ -14,4 +14,6 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     @Query(value = "SELECT * FROM cars WHERE number_of_seats >= ?1", nativeQuery = true)
     List<Car> findSeats(int numberOfSeats);
 
+
+
 }
