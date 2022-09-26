@@ -17,4 +17,7 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     @Query(value = "SELECT * FROM offers AS o WHERE o.id NOT IN (SELECT offer FROM bookings)", nativeQuery = true)
     List<Offer> findUnbooked();
 
+    @Query(value = "SELECT * FROM offers AS o WHERE o.id IN (SELECT offer FROM bookings)", nativeQuery = true)
+    List<Offer> findBooked();
+
 }

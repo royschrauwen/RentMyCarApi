@@ -50,11 +50,28 @@ public class OfferController {
     }
 
     @GetMapping("/offers/unbooked")
-    public ResponseEntity<List<Offer>> getAllOffers() {
+    public ResponseEntity<List<Offer>> getAllUnbookedOffers() {
         try {
             List<Offer> offers = new ArrayList<>();
 
                 offerRepository.findUnbooked().forEach(offers::add);
+
+            if (offers.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(offers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/offers/booked")
+    public ResponseEntity<List<Offer>> getAllBookedOffers() {
+        try {
+            List<Offer> offers = new ArrayList<>();
+
+            offerRepository.findBooked().forEach(offers::add);
 
             if (offers.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
