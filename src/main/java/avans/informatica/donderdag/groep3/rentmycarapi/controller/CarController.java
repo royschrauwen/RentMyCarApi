@@ -54,6 +54,24 @@ public class CarController {
         }
     }
 
+//    @GetMapping("/cars")
+//    public ResponseEntity<List<Car>> getAllCarsWithSeats(int seats) {
+//        try {
+//            List<Car> cars = new ArrayList<>();
+//                carRepository.findBySeats(seats).forEach(cars::add);
+//
+//            if (cars.isEmpty()) {
+//                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//            }
+//
+//            return new ResponseEntity<>(cars, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+
+
+
     @GetMapping("/cars/{id}")
     public ResponseEntity<Car> getCarById(@PathVariable("id") long id) {
         Optional<Car> carData = carRepository.findById(id);
