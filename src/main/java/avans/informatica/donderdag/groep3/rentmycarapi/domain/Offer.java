@@ -1,4 +1,4 @@
-package avans.informatica.donderdag.groep3.rentmycarapi.model;
+package avans.informatica.donderdag.groep3.rentmycarapi.domain;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

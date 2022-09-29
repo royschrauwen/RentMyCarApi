@@ -1,7 +1,6 @@
 package avans.informatica.donderdag.groep3.rentmycarapi.repository;
 
-import avans.informatica.donderdag.groep3.rentmycarapi.model.Car;
-import avans.informatica.donderdag.groep3.rentmycarapi.model.Offer;
+import avans.informatica.donderdag.groep3.rentmycarapi.domain.Offer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

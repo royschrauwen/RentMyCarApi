@@ -2,20 +2,15 @@ package avans.informatica.donderdag.groep3.rentmycarapi.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import avans.informatica.donderdag.groep3.rentmycarapi.model.Tutorial;
-import avans.informatica.donderdag.groep3.rentmycarapi.model.User;
+import avans.informatica.donderdag.groep3.rentmycarapi.domain.User;
 import avans.informatica.donderdag.groep3.rentmycarapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

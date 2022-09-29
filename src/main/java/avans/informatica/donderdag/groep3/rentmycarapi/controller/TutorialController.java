@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import avans.informatica.donderdag.groep3.rentmycarapi.model.Tutorial;
+import avans.informatica.donderdag.groep3.rentmycarapi.domain.Tutorial;
 import avans.informatica.donderdag.groep3.rentmycarapi.repository.TutorialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

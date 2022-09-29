@@ -2,7 +2,7 @@ package avans.informatica.donderdag.groep3.rentmycarapi.repository;
 
 import java.util.List;
 
-import avans.informatica.donderdag.groep3.rentmycarapi.model.Tutorial;
+import avans.informatica.donderdag.groep3.rentmycarapi.domain.Tutorial;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
